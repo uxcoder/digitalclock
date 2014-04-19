@@ -22,9 +22,9 @@ body {
     position: absolute;
     left: 50%;
     top: 50%;
-    width: 60px;
+    width: 320px;
     height: 90px;
-    margin: -45px 0 0 -30px;
+    margin: -45px 0 0 -160px;
 }
 ul.flip {
     font-family: "Arial", sans-serif;
@@ -140,4 +140,7 @@ body.play ul li.before .up {
     100% {
         transform: rotateX(-90deg);
     }
+}
+.delimeter {
+    background-color: #ddd;
 }
