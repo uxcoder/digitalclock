@@ -1,14 +1,37 @@
 /**
  * Created by alex on 19/04/14.
  */
-setInterval(function () { flipMinuteSecondDigit() }, 1000);
+var currentDate = new Date();
+var currentMin = currentDate.getMinutes();
 
-function flipMinuteSecondDigit() {
+setCurrentTime();
+
+setInterval(function () {
+    checkMinuteChange();
+}, 2000);
+
+function setCurrentTime() {
+    $("ul.minuteSecondDigit li").eq(currentDate.getMinutes() % 10).addClass("current");
+    $("ul.minuteFirstDigit li").eq(currentDate.getMinutes() / 10 >> 0).addClass("current");
+    $("ul.hourSecondDigit li").eq(currentDate.getHours() % 10).addClass("current");
+    $("ul.hourFirstDigit li").eq(currentDate.getHours() / 10 >> 0).addClass("current");
+}
+
+function checkMinuteChange() {
+    var tempDate = new Date();
+    var tempMinutes = tempDate.getMinutes();
+    if (tempMinutes != currentMin) {
+        currentMin = tempMinutes;
+        minuteSecondDigit();
+    }
+}
+
+function minuteSecondDigit() {
     $("body").removeClass("play");
     var aa = $("ul.minuteSecondDigit li.active");
 
-    if (aa.html() === undefined) {
-        aa = $("ul.minuteSecondDigit li").eq(0);
+    if (aa.html() == undefined) {
+        aa = $("ul.minuteSecondDigit li").eq(currentDate.getMinutes() % 10);
         aa.addClass("before")
             .next("li")
             .addClass("active")
@@ -22,8 +45,7 @@ function flipMinuteSecondDigit() {
         aa.addClass("active")
             .closest("body")
             .addClass("play");
-
-        flipMinuteFirstDigit();
+        minuteFirstDigit();
     }
     else {
         $("ul.minuteSecondDigit li").removeClass("before");
@@ -36,12 +58,12 @@ function flipMinuteSecondDigit() {
     }
 }
 
-function flipMinuteFirstDigit() {
+function minuteFirstDigit() {
     $("body").removeClass("play");
     var aa = $("ul.minuteFirstDigit li.active");
 
-    if (aa.html() === undefined) {
-        aa = $("ul.minuteFirstDigit li").eq(0);
+    if (aa.html() == undefined) {
+        aa = $("ul.minuteFirstDigit li").eq(currentDate.getMinutes() / 10 >> 0);
         aa.addClass("before")
             .next("li")
             .addClass("active")
@@ -55,8 +77,7 @@ function flipMinuteFirstDigit() {
         aa.addClass("active")
             .closest("body")
             .addClass("play");
-
-        flipHourSecondDigit();
+        hourSecondDigit();
     }
     else {
         $("ul.minuteFirstDigit li").removeClass("before");
@@ -69,13 +90,12 @@ function flipMinuteFirstDigit() {
     }
 }
 
-
-function flipHourSecondDigit() {
+function hourSecondDigit() {
     $("body").removeClass("play");
     var aa = $("ul.hourSecondDigit li.active");
 
-    if (aa.html() === undefined) {
-        aa = $("ul.hourSecondDigit li").eq(0);
+    if (aa.html() == undefined) {
+        aa = $("ul.hourSecondDigit li").eq(currentDate.getHours() % 10);
         aa.addClass("before")
             .next("li")
             .addClass("active")
@@ -89,8 +109,7 @@ function flipHourSecondDigit() {
         aa.addClass("active")
             .closest("body")
             .addClass("play");
-
-        flipHourFirstDigit();
+        hourFirstDigit();
     }
     else {
         $("ul.hourSecondDigit li").removeClass("before");
@@ -103,12 +122,12 @@ function flipHourSecondDigit() {
     }
 }
 
-function flipHourFirstDigit() {
+function hourFirstDigit() {
     $("body").removeClass("play");
     var aa = $("ul.hourFirstDigit li.active");
 
-    if (aa.html() === undefined) {
-        aa = $("ul.hourFirstDigit li").eq(0);
+    if (aa.html() == undefined) {
+        aa = $("ul.hourFirstDigit li").eq(currentDate.getHours() / 10 >> 0);
         aa.addClass("before")
             .next("li")
             .addClass("active")

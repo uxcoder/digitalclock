@@ -17,21 +17,20 @@ body {
     color: #ccc;
     background: rgb(150, 150, 150);
 }
-
 .container {
     text-align: center;
     position: absolute;
     left: 50%;
     top: 50%;
-    width: 320px;
+    width: 360px;
     height: 90px;
-    margin: -45px 0 0 -160px;
+    margin: -45px 0 0 -180px;
 }
 ul.flip {
     font-family: "Arial", sans-serif;
     position: relative;
     float: left;
-    margin: 3px;
+    margin: 5px;
     width: 60px;
     height: 90px;
     font-size: 88px;
@@ -99,10 +98,12 @@ ul.flip li a div.up div.value {
 ul.flip li a div.down div.value {
     bottom: 0;
 }
+ul.flip li.current {
+    z-index: 2;
+}
 body.play ul li.before { /*counter value before flip (current)*/
     z-index: 3;
 }
-
 body.play ul li.active { /*counter value after half-flip (next)*/
     animation: reveal .5s .5s linear both;
     z-index: 2;
@@ -119,7 +120,7 @@ body.play ul li.active { /*counter value after half-flip (next)*/
     }
 }
 body.play ul li.active .down {
-    /*z-index: 3;*/
+    /*z-index: 2;*/
     animation: turnDown .5s .5s linear both;
 }
 @keyframes turnDown {
@@ -141,4 +142,7 @@ body.play ul li.before .up {
     100% {
         transform: rotateX(-90deg);
     }
+}
+.delimeter {
+    background-color: #ddd;
 }
