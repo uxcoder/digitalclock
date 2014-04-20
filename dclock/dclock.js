@@ -132,7 +132,7 @@ function hourSecondDigit() {
                 .addClass("play");
         }
     }
-    else if (aa.is(":last-child")) {
+    else if (aa.is(":last-child") || currentDate.getHours() == 23) {
         $("ul.hourSecondDigit li").removeClass("before");
         aa.addClass("before").removeClass("active");
         aa = $("ul.hourSecondDigit li").eq(0);
