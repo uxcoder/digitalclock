@@ -31,8 +31,9 @@ function minuteSecondDigit() {
     var aa = $("ul.minuteSecondDigit li.active");
 
     if (aa.html() == undefined) {
-        aa = $("ul.minuteSecondDigit li").eq(currentDate.getMinutes() % 10);
+        aa = $("ul.minuteSecondDigit li.current");
         aa.addClass("before")
+            .removeClass("current")
             .next("li")
             .addClass("active")
             .closest("body")
@@ -63,8 +64,9 @@ function minuteFirstDigit() {
     var aa = $("ul.minuteFirstDigit li.active");
 
     if (aa.html() == undefined) {
-        aa = $("ul.minuteFirstDigit li").eq(currentDate.getMinutes() / 10 >> 0);
+        aa = $("ul.minuteFirstDigit li.current");
         aa.addClass("before")
+            .removeClass("current")
             .next("li")
             .addClass("active")
             .closest("body")
@@ -95,8 +97,9 @@ function hourSecondDigit() {
     var aa = $("ul.hourSecondDigit li.active");
 
     if (aa.html() == undefined) {
-        aa = $("ul.hourSecondDigit li").eq(currentDate.getHours() % 10);
+        aa = $("ul.hourSecondDigit li.current");
         aa.addClass("before")
+            .removeClass("current")
             .next("li")
             .addClass("active")
             .closest("body")
@@ -127,8 +130,9 @@ function hourFirstDigit() {
     var aa = $("ul.hourFirstDigit li.active");
 
     if (aa.html() == undefined) {
-        aa = $("ul.hourFirstDigit li").eq(currentDate.getHours() / 10 >> 0);
+        aa = $("ul.hourFirstDigit li.current");
         aa.addClass("before")
+            .removeClass("current")
             .next("li")
             .addClass("active")
             .closest("body")
