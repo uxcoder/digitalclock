@@ -33,11 +33,20 @@ function minuteSecondDigit() {
     if (aa.html() == undefined) {
         aa = $("ul.minuteSecondDigit li.current");
         aa.addClass("before")
-            .removeClass("current")
-            .next("li")
+            .removeClass("current");
+        if (aa.is(":last-child")) {
+            aa = $("ul.minuteSecondDigit li").eq(0);
+            aa.addClass("active")
+                .closest("body")
+                .addClass("play");
+            minuteFirstDigit();
+        }
+        else {
+            aa.next("li")
             .addClass("active")
             .closest("body")
             .addClass("play");
+        }
     }
     else if (aa.is(":last-child")) {
         $("ul.minuteSecondDigit li").removeClass("before");
@@ -66,11 +75,20 @@ function minuteFirstDigit() {
     if (aa.html() == undefined) {
         aa = $("ul.minuteFirstDigit li.current");
         aa.addClass("before")
-            .removeClass("current")
-            .next("li")
-            .addClass("active")
-            .closest("body")
-            .addClass("play");
+            .removeClass("current");
+        if (aa.is(":last-child")) {
+            aa = $("ul.minuteFirstDigit li").eq(0);
+            aa.addClass("active")
+                .closest("body")
+                .addClass("play");
+            hourSecondDigit();
+        }
+        else {
+            aa.next("li")
+                .addClass("active")
+                .closest("body")
+                .addClass("play");
+        }
     }
     else if (aa.is(":last-child")) {
         $("ul.minuteFirstDigit li").removeClass("before");
@@ -99,11 +117,20 @@ function hourSecondDigit() {
     if (aa.html() == undefined) {
         aa = $("ul.hourSecondDigit li.current");
         aa.addClass("before")
-            .removeClass("current")
-            .next("li")
-            .addClass("active")
-            .closest("body")
-            .addClass("play");
+            .removeClass("current");
+        if (aa.is(":last-child") || currentDate.getHours() == 23) {
+            aa = $("ul.hourSecondDigit li").eq(0);
+            aa.addClass("active")
+                .closest("body")
+                .addClass("play");
+            hourFirstDigit();
+        }
+        else {
+            aa.next("li")
+                .addClass("active")
+                .closest("body")
+                .addClass("play");
+        }
     }
     else if (aa.is(":last-child")) {
         $("ul.hourSecondDigit li").removeClass("before");
@@ -132,9 +159,10 @@ function hourFirstDigit() {
     if (aa.html() == undefined) {
         aa = $("ul.hourFirstDigit li.current");
         aa.addClass("before")
-            .removeClass("current")
-            .next("li")
-            .addClass("active")
+            .removeClass("current");
+        if (aa.is(":last-child")) aa = $("ul.hourFirstDigit li").eq(0);
+        else aa.next("li");
+        aa.addClass("active")
             .closest("body")
             .addClass("play");
     }
