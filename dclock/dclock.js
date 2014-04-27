@@ -36,9 +36,7 @@ function minuteSecondDigit() {
             .removeClass("current");
         if (aa.is(":last-child")) {
             aa = $("ul.minuteSecondDigit li").eq(0);
-            aa.addClass("active")
-                .closest("body")
-                .addClass("play");
+            aa.addClass("active");
             minuteFirstDigit();
         }
         else {
@@ -52,9 +50,7 @@ function minuteSecondDigit() {
         $("ul.minuteSecondDigit li").removeClass("before");
         aa.addClass("before").removeClass("active");
         aa = $("ul.minuteSecondDigit li").eq(0);
-        aa.addClass("active")
-            .closest("body")
-            .addClass("play");
+        aa.addClass("active");
         minuteFirstDigit();
     }
     else {
@@ -78,9 +74,7 @@ function minuteFirstDigit() {
             .removeClass("current");
         if (aa.is(":last-child")) {
             aa = $("ul.minuteFirstDigit li").eq(0);
-            aa.addClass("active")
-                .closest("body")
-                .addClass("play");
+            aa.addClass("active");
             hourSecondDigit();
         }
         else {
@@ -94,9 +88,7 @@ function minuteFirstDigit() {
         $("ul.minuteFirstDigit li").removeClass("before");
         aa.addClass("before").removeClass("active");
         aa = $("ul.minuteFirstDigit li").eq(0);
-        aa.addClass("active")
-            .closest("body")
-            .addClass("play");
+        aa.addClass("active");
         hourSecondDigit();
     }
     else {
@@ -120,9 +112,7 @@ function hourSecondDigit() {
             .removeClass("current");
         if (aa.is(":last-child") || currentDate.getHours() == 23) {
             aa = $("ul.hourSecondDigit li").eq(0);
-            aa.addClass("active")
-                .closest("body")
-                .addClass("play");
+            aa.addClass("active");
             hourFirstDigit();
         }
         else {
@@ -136,9 +126,7 @@ function hourSecondDigit() {
         $("ul.hourSecondDigit li").removeClass("before");
         aa.addClass("before").removeClass("active");
         aa = $("ul.hourSecondDigit li").eq(0);
-        aa.addClass("active")
-            .closest("body")
-            .addClass("play");
+        aa.addClass("active");
         hourFirstDigit();
     }
     else {
